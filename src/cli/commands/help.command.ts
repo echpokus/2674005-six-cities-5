@@ -11,10 +11,10 @@ export class HelpCommand implements Command {
     console.log(chalk.yellow('Пример:'));
     console.log(chalk.gray('    cli.js --<command> [--arguments]'));
     console.log(chalk.yellow('\nКоманды:'));
-    console.log(`${chalk.green('    --version:')}                   ${chalk.white('# выводит номер версии')}`);
-    console.log(`${chalk.green('    --help:')}                      ${chalk.white('# печатает этот текст')}`);
-    console.log(`${chalk.green('    --import <path>:')}             ${chalk.white('# импортирует данные из TSV')}`);
-    console.log(`${chalk.green('    --generate <n> <path> <url>:')} ${chalk.white('# генерирует тестовые данные')}`);
+    console.log(`${chalk.green('    --version:')}                            ${chalk.white('# выводит номер версии')}`);
+    console.log(`${chalk.green('    --help:')}                               ${chalk.white('# печатает этот текст')}`);
+    console.log(`${chalk.green('    --import <path> [dbUri]:')}              ${chalk.white('# импортирует данные из TSV в MongoDB')}`);
+    console.log(`${chalk.green('    --generate <n> <path> <url>:')}          ${chalk.white('# генерирует тестовые данные')}`);
     console.log();
   }
 }
