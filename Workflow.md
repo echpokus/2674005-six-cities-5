@@ -99,7 +99,7 @@ npm run mock:server
 ```bash
 node dist/main.js --help                    # Справка по командам
 node dist/main.js --version                 # Версия приложения
-node dist/main.js --import <path>           # Импорт данных из TSV файла
+node dist/main.js --import <path> [dbUri]   # Импорт данных из TSV файла в MongoDB
 node dist/main.js --generate <n> <path> <url> # Генерация тестовых данных
 ```
 
@@ -107,6 +107,12 @@ node dist/main.js --generate <n> <path> <url> # Генерация тестов�
 
 ```bash
 node dist/main.js --generate 100 ./mocks/test.tsv http://localhost:3000/mock-data
+```
+
+Пример импорта:
+
+```bash
+node dist/main.js --import ./test-import.tsv "mongodb://admin:test@localhost:27017/six-cities?authSource=admin"
 ```
 
 ### Формат TSV
