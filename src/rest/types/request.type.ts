@@ -6,11 +6,9 @@ export type TokenPayload = {
   id: string;
 };
 
-declare global {
-  namespace Express {
-    export interface Request {
-      user?: DocumentType<UserEntity>;
-      tokenPayload?: TokenPayload;
-    }
+declare module 'express-serve-static-core' {
+  interface Request {
+    user?: DocumentType<UserEntity>;
+    tokenPayload?: TokenPayload;
   }
 }

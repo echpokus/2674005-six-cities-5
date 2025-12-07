@@ -22,7 +22,7 @@ export class DefaultUserService implements IUserService {
     const user = new UserEntity();
     Object.assign(user, dto);
     user.setPassword(dto.password, this.config.salt);
-    
+
     const newUser = await this.userModel.create(user);
     this.logger.info(`User created: ${newUser.email}`);
     return newUser;
@@ -66,11 +66,11 @@ export class DefaultUserService implements IUserService {
       { $addToSet: { favoriteOffers: offerId } },
       { new: true }
     );
-    
+
     if (user) {
       this.logger.info(`Offer ${offerId} added to favorites for user ${userId}`);
     }
-    
+
     return user;
   }
 
@@ -80,11 +80,11 @@ export class DefaultUserService implements IUserService {
       { $pull: { favoriteOffers: offerId } },
       { new: true }
     );
-    
+
     if (user) {
       this.logger.info(`Offer ${offerId} removed from favorites for user ${userId}`);
     }
-    
+
     return user;
   }
 

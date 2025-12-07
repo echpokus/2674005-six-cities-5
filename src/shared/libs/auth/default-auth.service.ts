@@ -46,7 +46,7 @@ export class DefaultAuthService implements AuthService {
       const jwtSecret = this.config.jwtSecret;
       const secretKey = crypto.createSecretKey(jwtSecret, 'utf-8');
       const { payload } = await jwtVerify(token, secretKey);
-      
+
       return {
         email: payload.email as string,
         id: payload.id as string
