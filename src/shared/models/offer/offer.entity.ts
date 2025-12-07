@@ -4,6 +4,14 @@ import { HousingType } from '../../types/housing-type.enum.js';
 import { Amenity } from '../../types/amenity.enum.js';
 import { UserEntity } from '../user/user.entity.js';
 
+class LocationData {
+  @prop({ required: true, type: Number })
+  public latitude!: number;
+
+  @prop({ required: true, type: Number })
+  public longitude!: number;
+}
+
 @modelOptions({
   schemaOptions: {
     timestamps: true,
@@ -138,15 +146,9 @@ export class OfferEntity {
 
   @prop({
     required: true,
-    type: () => ({
-      latitude: Number,
-      longitude: Number
-    })
+    type: LocationData
   })
-  public location!: {
-    latitude: number;
-    longitude: number;
-  };
+  public location!: LocationData;
 
   @prop({
     default: new Date()
