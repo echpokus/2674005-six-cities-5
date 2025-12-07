@@ -12,7 +12,7 @@ export class DocumentExistsMiddleware implements Middleware {
 
   async execute(req: Request, res: Response, next: NextFunction): Promise<void> {
     const documentId = req.params[this.paramName];
-    
+
     if (!await this.service.exists(documentId)) {
       res
         .status(StatusCodes.NOT_FOUND)
